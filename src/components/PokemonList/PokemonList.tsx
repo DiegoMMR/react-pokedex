@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import "../../sass/Pokedex.scss";
 import { useSelector } from "react-redux";
 import { PokemonCard } from "../Pokedex/PokemonCard";
-import { Filter } from "../Pokedex/Filter";
+import { Filter } from "./Filter";
 
 function PokemonList() {
   const pokemons = useSelector((state: any) => state.pokemons);
