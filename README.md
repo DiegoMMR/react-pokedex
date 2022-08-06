@@ -17,3 +17,4 @@
 ## Notas
 
 - Se pueden agregar pruebas para mejorar el proceso de despliegue con vercel.
+- Para una mejor experiencia de usuario se podria agregar un sistema de drag n drop para mover pokemones de la lista al equipo
