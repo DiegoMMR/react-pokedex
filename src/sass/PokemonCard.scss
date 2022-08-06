@@ -1,5 +1,9 @@
 $cardWidth: 170px;
 
+a {
+  text-decoration: none;
+}
+
 .pokemon-card {
   &:hover {
     transform: scale(1.03);

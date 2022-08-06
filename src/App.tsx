@@ -21,18 +21,16 @@ function App() {
     })();
   }, []);
 
-  return (
-    <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="app-container">
-          <Pokedex />
-          <Team />
-        </div>
-      )}
-    </Fragment>
-  );
+  if (loading) {
+    return <Loader />;
+  } else {
+    return (
+      <div className="app-container">
+        <Pokedex />
+        <Team />
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "../../sass/PokemonCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { add_pokemon_to_team, remove_pokemon_from_team } from "../../store/actions";
@@ -32,15 +32,14 @@ function PokemonCard({ pokemon, isTeam }: IProps) {
     <div className="pokemon-card">
       {!isTeam && !isOnTeam && !isTeamFull && <img onClick={addToTeam} className="add btn" src={PlusIcon} alt="" />}
       {isTeam && <img onClick={removeFromTeam} className="remove btn" src={XMarkIcon} alt="" />}
-
-      <img className="pokemon-img" src={pokemon.image} alt="" />
-      <div className="pokemon-info">
-        <span className="number"># {pokemon.id}</span>
-        <Link to={`/pokemon/${pokemon.id}`} className="name">
-          {pokemon.name}
-        </Link>
-        <Types pokemon={pokemon} />
-      </div>
+      <Link to={`/pokemon/${pokemon.id}`} className="card">
+        <img className="pokemon-img" src={pokemon.image} alt="" />
+        <div className="pokemon-info">
+          <span className="number"># {pokemon.id}</span>
+          <span className="name">{pokemon.name}</span>
+          <Types pokemon={pokemon} />
+        </div>
+      </Link>
     </div>
   );
 }

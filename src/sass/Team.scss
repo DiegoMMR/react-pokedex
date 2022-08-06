@@ -3,12 +3,14 @@
   flex-direction: column;
   flex: 0.5;
   background-color: #bb0b28;
+
   h1 {
     text-align: center;
     color: #fff;
   }
 
   .team-scroll {
+    padding-top: 15px;
     overflow-y: scroll;
     flex: 1 1;
     box-sizing: border-box;
