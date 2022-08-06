@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { list_pokemons } from "./store/actions";
+import "./sass/App.scss";
+import { getPokemons } from "./api/pokemon";
+
+import { Pokedex } from "./components/Pokedex/Pokedex";
+import { Team } from "./components/Team/Team";
+import { Loader } from "./components/Loader/Loader";
 
 function App() {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const pokemons = await getPokemons();
+
+      dispatch(list_pokemons(pokemons));
+      setLoading(false);
+    })();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="app-container">
+          <Pokedex />
+          <Team />
+        </div>
+      )}
+    </Fragment>
   );
 }
 
