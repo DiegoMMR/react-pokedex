@@ -10,11 +10,17 @@ function Team() {
     <div className="team-container">
       <h1>Listos para el combate</h1>
       <div className="team-scroll">
-        <div className="team-list">
-          {team.map((pokemon: any) => {
-            return <PokemonCard key={pokemon.id} pokemon={pokemon} isTeam />;
-          })}
-        </div>
+        {team.length > 0 ? (
+          <div className="team-list">
+            {team.map((pokemon: any) => {
+              return <PokemonCard key={pokemon.id} pokemon={pokemon} isTeam />;
+            })}
+          </div>
+        ) : (
+          <div className="team-empty">
+            <h2>No tienes pokemones en tu equipo</h2>
+          </div>
+        )}
       </div>
     </div>
   );
