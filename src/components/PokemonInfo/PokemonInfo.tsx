@@ -48,7 +48,7 @@ function PokemonInfo() {
                 Agregar al equipo
               </span>
             )}
-            {isOnTeam && !isTeamFull && (
+            {isOnTeam && (
               <span className="remove btn" onClick={removeFromTeam}>
                 Quitar del equipo
               </span>
